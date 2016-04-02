@@ -81,6 +81,8 @@ def addMerchant(topic = None):
 		headers={'content-type':'application/json'},
 		)
 
+	return response.json()["objectCreated"]["_id"];
+
 def numberOfMerchants():
 	url = 'http://api.reimaginebanking.com/merchants?key={}'.format(apiKey);
 
@@ -90,18 +92,3 @@ def numberOfMerchants():
 		)
 	merchants = response.json();
 	return len(merchants);
-
-print numberOfMerchants();
-a = addMerchant();
-print numberOfMerchants();
-
-# print response.json()["_id"];
-# Get merchants
-# url = 'http://api.reimaginebanking.com/enterprise/merchants?key={}'.format(apiKey);
-
-# response = requests.get(
-# 	url,
-# 	headers={'content-type':'application/json'},
-# 	)
-
-# result = response.json()["results"];
